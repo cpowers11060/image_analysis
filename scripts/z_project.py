@@ -16,7 +16,7 @@ import sys
 import os
 from collections import defaultdict
 
-wd = os.getcwd() + "raw/"
+wd = os.getcwd() + "/raw/"
 
 iteration = []
 with open(sys.argv[3], "r") as infile:

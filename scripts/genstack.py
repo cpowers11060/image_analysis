@@ -10,7 +10,7 @@ import sys
 import os
 from collections import defaultdict
 
-wd = os.getcwd() + "raw/"
+wd = os.getcwd() + "/raw/"
 print("Loading FIJI env")
 ij=imagej.init('~/Applications/Fiji.app')
 
