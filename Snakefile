@@ -1,9 +1,11 @@
-sample = ["A1", "A2", "A3"]
+sample = ["A1_10min", "A2_10min", "A3_10min", "A1_20min", "A2_20min", "A3_20min", "A1_30min", "A2_30min", "A3_30min",
+          "A4_10min", "A5_10min", "A6_10min", "A4_20min", "A5_20min", "A6_20min", "A4_30min", "A5_30min", "A6_30min",]
 
 rule all:
     input:
-        "raw/A5_decon_histo.tsv"
-        #expand("{id}_decon_histo.tsv", id=sample)
+        #"raw/A5_decon_histo.tsv"
+        expand("raw/{ID}.tif_raw_avg.tsv", ID=sample),
+        "table_avg_intensity.tsv"
 
 rule redlionfish:
     output:
@@ -54,8 +56,17 @@ rule avg_intensity:
     input:
         "raw/{ID}.tif"
     output:
-        "raw/{ID}_raw_avg.tsv"
+        "raw/{ID}.tif_raw_avg.tsv"
     shell:
         """
-        python scripts/avg_int.py {input} ~/projects/NB_Forams/8c_fluorescence/2023_2_20_Fluorescence/Before/stacks/raw/
+        python scripts/avg_int.py {wildcards.ID}.tif 
         """
+
+rule combine_avg_intensity:
+    input:
+        expand("raw/{ID}.tif_raw_avg.tsv", ID = sample)
+    output:
+        "table_avg_intensity.tsv"
+    shell:
+        "python scripts/combine_raw_avg.py raw/*_raw_avg.tsv > table_avg_intensity.tsv"
+
