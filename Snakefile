@@ -18,7 +18,7 @@ rule genstack:
     output:
         "raw/{ID}.tif"
     shell:
-        "python scripts/genstack.py {wildcards.ID} ~/projects/NB_Forams/8c_fluorescence/2023_2_20_Fluorescence/Before/stacks/raw/"
+        "python scripts/genstack.py {wildcards.ID}"
 
 # This rule runs the Richardson Lucy deconvolution
 # method using the redlionfish python package
@@ -43,7 +43,7 @@ rule histogram:
         "raw/{ID}_decon_histo.tsv"
     shell:
         """
-        python scripts/z_project.py {wildcards.ID} ~/projects/NB_Forams/8c_fluorescence/2023_2_20_Fluorescence/Before/stacks/raw/ iter.tsv 
+        python scripts/z_project.py {wildcards.ID} iter.tsv 
         python scripts/derive_intChange.py raw/{wildcards.ID}_decon_histo.tsv
         """
 

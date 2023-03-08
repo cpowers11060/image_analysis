@@ -16,6 +16,8 @@ import sys
 import os
 from collections import defaultdict
 
+wd = os.getcwd() + "raw/"
+
 iteration = []
 with open(sys.argv[3], "r") as infile:
     for line in infile:
@@ -27,7 +29,7 @@ print(iteration)
 print("Loading FIJI env")
 ij=imagej.init('~/Applications/Fiji.app')
 
-wd = sys.argv[2]
+#wd = sys.argv[2]
 #"~/projects/NB_Forams/8c_fluorescence/2023_2_20_Fluorescence/Before/stacks/raw/"
 print(wd)
 

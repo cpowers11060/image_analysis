@@ -10,10 +10,11 @@ import sys
 import os
 from collections import defaultdict
 
+wd = os.getcwd() + "raw/"
 print("Loading FIJI env")
 ij=imagej.init('~/Applications/Fiji.app')
 
-wd = sys.argv[2]
+#wd = sys.argv[2]
 print(wd)
 
 macro = """
