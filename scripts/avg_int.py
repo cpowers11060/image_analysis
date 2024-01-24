@@ -13,7 +13,7 @@ from collections import defaultdict
 wd = os.getcwd() + "/raw/"
 
 print("Loading FIJI env")
-ij=imagej.init('~/Applications/Fiji.app')
+ij=imagej.init("/mnt/c/Users/YZLab/Downloads/fiji-win64/Fiji.app")
 
 histo_dict = defaultdict(lambda:[])
 macro = """

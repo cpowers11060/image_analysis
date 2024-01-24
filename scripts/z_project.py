@@ -19,7 +19,7 @@ from collections import defaultdict
 wd = os.getcwd() + "/raw/"
 
 iteration = []
-with open(sys.argv[3], "r") as infile:
+with open(sys.argv[2], "r") as infile:
     for line in infile:
         line = line.rstrip()
         iteration.append(line)
@@ -27,7 +27,9 @@ print("iterations: {}",format(" ".join(iteration)))
 print(iteration)
 
 print("Loading FIJI env")
-ij=imagej.init('~/Applications/Fiji.app')
+
+ij=imagej.init("/mnt/c/Users/YZLab/Downloads/fiji-win64/Fiji.app")
+#C:\Users\YZLab\Downloads\fiji-win64\Fiji.app")
 
 #wd = sys.argv[2]
 #"~/projects/NB_Forams/8c_fluorescence/2023_2_20_Fluorescence/Before/stacks/raw/"

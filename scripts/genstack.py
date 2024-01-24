@@ -12,7 +12,7 @@ from collections import defaultdict
 
 wd = os.getcwd() + "/raw/"
 print("Loading FIJI env")
-ij=imagej.init('~/Applications/Fiji.app')
+ij=imagej.init("/mnt/c/Users/YZLab/Documents/fiji-linux64/Fiji.app")
 
 #wd = sys.argv[2]
 print(wd)
